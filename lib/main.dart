@@ -8,8 +8,7 @@ void main() {
 }
 
 class GameFields {
-  GameFields(
-      {this.id, this.text = '', this.clr = Colors.white, this.enable = true});
+  GameFields({this.id, this.text = '', this.clr = Colors.white, this.enable = true});
 
   final int id;
   String text;
@@ -165,24 +164,18 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: GridView.builder(
               itemCount: fieldsList.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 1.0, crossAxisCount: 3),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(childAspectRatio: 1.0, crossAxisCount: 3),
               itemBuilder: (BuildContext context, int index) {
                 return AnimatedContainer(
                   duration: const Duration(milliseconds: 800),
                   width: 80.0,
                   height: 80.0,
-                  decoration: BoxDecoration(
-                      color: fieldsList[index].clr,
-                      border: Border.all(width: 2.0)),
+                  decoration: BoxDecoration(color: fieldsList[index].clr, border: Border.all(width: 2.0)),
                   child: FlatButton(
-                    onPressed: fieldsList[index].enable
-                        ? () => game(fieldsList[index])
-                        : null,
+                    onPressed: fieldsList[index].enable ? () => game(fieldsList[index]) : null,
                     child: Text(
                       fieldsList[index].text,
-                      style:
-                          const TextStyle(color: Colors.white, fontSize: 50.0),
+                      style: const TextStyle(color: Colors.white, fontSize: 50.0),
                     ),
                   ),
                 );
@@ -190,15 +183,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           FlatButton(
-              padding: const EdgeInsets.all(8.0),
-              onPressed: playAgain,
-              child: const Text(
-                'Play Again',
-                style: TextStyle(
-                  color: Colors.lightBlue,
-                  fontSize: 25.0,
-                ),
-              ))
+            padding: const EdgeInsets.all(8.0),
+            onPressed: playAgain,
+            child: const Text(
+              'Play Again',
+              style: TextStyle(
+                color: Colors.lightBlue,
+                fontSize: 25.0,
+              ),
+            ),
+          ),
         ],
       ),
     );
